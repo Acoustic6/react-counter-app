@@ -6,10 +6,10 @@ class Counter extends Component {
     tags: [],
   };
 
-  constructor() {
-    super(); // this is not alowed before super()
-    this.handleIncrement = this.handleIncrement.bind(this);
-  }
+  // constructor() {
+  //   super(); // this is not alowed before super()
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
 
   render() {
     return (
@@ -25,13 +25,7 @@ class Counter extends Component {
     );
   }
 
-  handleIncrement() {
-    console.log("Increment Clicked", this);
-    // console.log(this.state.count); this won't work like that!
-    // obj.method(): this = obj
-    // function(): this = window
-    // function(): this = undefined (strict mode: on)
-  }
+  handleIncrement = () => console.log("Increment Clicked", this);
 
   getBadgeClasses() {
     let classes = "badge m-2 ";
