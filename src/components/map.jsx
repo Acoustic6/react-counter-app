@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Counter extends Component {
+class Map extends Component {
   state = {
     count: 0,
   };
