@@ -9,22 +9,30 @@ class Counter extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.tags.length === 0 && "Please create a new tag!"}
-        {this.renderTags()}
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
       </React.Fragment>
     );
   }
 
-  renderTags() {
-    if (this.state.tags.length === 0) return <p>There is no any tags!</p>;
+  handleIncrement() {
+    console.log("Increment Clicked");
+    // console.log(this.state.count); this won't work like that!
+  }
 
-    return (
-      <ul>
-        {this.state.tags.map((tag) => (
-          <li key={tag}>{tag}</li> // don't forget to specify the unique key!
-        ))}
-      </ul>
-    );
+  getBadgeClasses() {
+    let classes = "badge m-2 ";
+    classes += this.state.count === 0 ? "badge-warning" : "badge-primary";
+    return classes;
+  }
+
+  formatCount() {
+    return this.state.count === 0 ? "Zero" : this.state.count;
   }
 }
 
