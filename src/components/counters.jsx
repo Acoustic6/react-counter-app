@@ -28,7 +28,7 @@ class Counters extends Component {
       c.value = 0;
       return c;
     });
-    this.setState({counters}); // now it works after deleting child local state
+    this.setState({counters});
   }
 
   render() {
