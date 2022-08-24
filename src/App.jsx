@@ -13,6 +13,22 @@ class App extends Component {
     ],
   };
 
+  // Mount 1st hook. called once when component is created
+  // It is common to initialize properties of this instance
+  // Like set the state based on input props
+  // constructor(props) {
+  constructor() {
+    super(); // super(props);
+    console.log("App - Constructor");
+    // this.state = this.props.something;
+  }
+
+  componentDidMount() {
+    // Ajax call
+    // this.setState({data});
+    console.log("App - Mounted");
+  }
+
   handleDelete = (counterId) => {
     const counters = this.state.counters.filter((c) => c.id !== counterId);
     this.setState({ counters });
@@ -34,6 +50,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("App - rendered");
     return (
       <React.Fragment>
         <NavBar
